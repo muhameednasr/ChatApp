@@ -1,0 +1,30 @@
+﻿@using ChatApp.ViewModels.MessagesViewModels
+@model IEnumerable<MessagesUsersListViewModel>
+
+    <div>
+        @foreach (var item in Model)
+        {
+            <div class="user">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="first-letter">
+                            @item.UserName.Substring(0,1).ToUpper()
+                        </div>
+
+                        <div class="col-lg-6 user-info-wrap">
+                            <div class="user-info">
+                                <h3 class="user-name">@item.UserName</h3>
+                                <p class="last-message">@item.LastMessage</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 chat-btn-wrap">
+                            <a class="chat-btn btn btn-secondary" href="/Messages/Chat?selectedUserId=@item.Id">Chat</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
